@@ -1,0 +1,14 @@
+{
+  "name": "civicpulse",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,green \"npm run dev --workspace @civicpulse/server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace client",
+    "lint": "npm run lint --workspace client",
+    "test": "npm run test --workspace @civicpulse/server && npm run test --workspace client"
+  },
+  "devDependencies": { "concurrently": "^9.2.1" }
+}
